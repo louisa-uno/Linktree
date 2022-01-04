@@ -1,4 +1,4 @@
-## Tree
+## Linktree
 Open source alternative to services like linktree and manylink. Displays a tree or list of links I want to direct people towards. 
 
 ## Motivation
