@@ -14,4 +14,4 @@ Styling inspiration on buttons from https://github.com/RyanLefebvre/TREE
 - JS
     
 ## Project Results
-https://Luois45.github.io/Linktree
+https://linktree.louis45.de
