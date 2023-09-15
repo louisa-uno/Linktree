@@ -53,6 +53,32 @@ body {
 	display: block;
 	margin: 35px auto 20px;
 	border-radius: 50%;
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.profilePictureOverlay,
+.profilePictureOverlay img {
+	animation: opacity 10s ease infinite;
+}
+
+@keyframes opacity {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.profilePictureContainer {
+	display: grid;
+	margin: 35px auto 20px;
 }
 
 .userName {
