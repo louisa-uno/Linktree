@@ -94,7 +94,7 @@ body {
 	text-decoration: none;
 }
 
-.userNameDomainEnding {
+.greyedOut {
 	color: var(--greyedOutColor);
 }
 
