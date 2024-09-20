@@ -1,7 +1,12 @@
 html,
 body {
 	height: 95%;
-	font-family: 'Signika'
+	font-family: "Signika", system-ui;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+	font-variation-settings:
+		"GRAD" 0;
 }
 
 body {
@@ -89,7 +94,6 @@ body {
 .userName {
 	color: var(--accentColor);
 	font-size: x-large;
-	font-weight: bold;
 	line-height: 1.25;
 	display: block;
 	width: 100%;
