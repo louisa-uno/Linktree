@@ -1,4 +1,11 @@
-html,
+:root {
+	--accentColor: #E6E6E6;
+	--greyedOutColor: #ffffff4d;
+	--gradient1Color: #8c3da8;
+	--gradient2Color: #4d1f3d;
+	--gradient3Color: #1f4f7a;
+}
+
 body {
 	height: 95%;
 	font-family: "Signika", system-ui;
@@ -7,10 +14,7 @@ body {
 	font-style: normal;
 	font-variation-settings:
 		"GRAD" 0;
-}
-
-body {
-	background: linear-gradient(-45deg, #8c3da8, #4d1f3d, #1f4f7a, #8c3da8);
+	background: linear-gradient(-45deg, var(--gradient1Color), var(--gradient2Color), var(--gradient3Color), var(--gradient1Color));
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
 }
@@ -29,13 +33,6 @@ body {
 	}
 }
 
-:root {
-	--accentColor: #E6E6E6;
-	--greyedOutColor: #ffffff4d;
-	--delay: .3s;
-}
-
-.description,
 .source {
 	color: var(--greyedOutColor);
 	text-align: center;
@@ -43,16 +40,12 @@ body {
 	margin-top: 10px;
 	width: 90%;
 	max-width: 500px;
+	font-size: small;
 }
 
 .sourceLink {
 	color: var(--accentColor);
 	text-decoration: none;
-}
-
-.source {
-	font-size: small;
-	margin-top: 50px;
 }
 
 .profilePicture,
