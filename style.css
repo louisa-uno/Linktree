@@ -32,12 +32,17 @@ body {
 
 .description,
 .source {
-	color: white;
+	color: var(--greyedOutColor);
 	text-align: center;
 	margin: 27px auto;
 	margin-top: 10px;
 	width: 90%;
 	max-width: 500px;
+}
+
+.sourceLink {
+	color: var(--accentColor);
+	text-decoration: none;
 }
 
 .source {
