@@ -218,16 +218,6 @@ body {
 
 @media (hover: hover) {
 	.link:hover {
-		background-color: var(--accentColor);
-		color: #000;
-		/* Fallback for older browsers */
-		color: rgba(0, 0, 0, 0.5);
+		background-color: var(--greyedOutColor);
 	}
-}
-
-.link:active {
-	background-color: var(--accentColor);
-	color: #000;
-	/* Fallback for older browsers */
-	color: rgba(0, 0, 0, 0.5);
 }
