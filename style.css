@@ -27,6 +27,7 @@ body {
 
 :root {
 	--accentColor: #E6E6E6;
+	--greyedOutColor: #ffffff4d;
 	--delay: .3s;
 }
 
@@ -90,6 +91,74 @@ body {
 	width: 100%;
 	text-align: center;
 	text-decoration: none;
+}
+
+.userNameDomainEnding {
+	color: var(--greyedOutColor);
+}
+
+.userName1 {
+	animation: userName1opacity 10s ease infinite;
+}
+
+@keyframes userName1opacity {
+	0% {
+		opacity: 1;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	30% {
+		opacity: 0;
+	}
+
+	70% {
+		opacity: 0;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.userName2 {
+	animation: userName2opacity 10s ease infinite;
+}
+
+@keyframes userName2opacity {
+	0% {
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: 1;
+	}
+
+	70% {
+		opacity: 1;
+	}
+
+	80% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.name {
+	margin-top: -30px;
 }
 
 .links {
