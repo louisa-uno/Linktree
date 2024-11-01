@@ -218,18 +218,3 @@ body {
 		background-color: var(--greyedOutColor);
 	}
 }
-
-#flameIframe {
-	display: none;
-	transition: all 0.3s ease;
-}
-
-.fullscreen {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: 9999;
-}

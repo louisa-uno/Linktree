@@ -19,7 +19,7 @@
 	</head>
 
 	<body>
-		<div class="profilePictureContainer" onclick="toggleFullscreen()">
+		<div class="profilePictureContainer" onclick="registerRedirectClick()">
 			<a class="profilePicture">
 				<img src="./images/profile.webp" alt="Profile Picture" />
 			</a>
@@ -103,26 +103,17 @@
 			<a class="sourceLink" href="https://github.com/louisa-uno/Linktree"
 				>source code</a
 			>
-			<iframe id="flameIframe" src="https://flame.louis45.de"></iframe>
-			<script>
-				let lastClickTime = 0;
-
-				function toggleFullscreen() {
-					const iframe = document.getElementById("flameIframe");
-					const currentTime = new Date().getTime();
-
-					if (currentTime - lastClickTime < 1000) {
-						iframe.classList.toggle("fullscreen");
-
-						if (iframe.classList.contains("fullscreen")) {
-							iframe.style.display = "block";
-						} else {
-							iframe.style.display = "none";
-						}
-					}
-					lastClickTime = currentTime;
-				}
-			</script>
 		</div>
+		<script>
+			let lastClickTime = 0;
+			function registerRedirectClick() {
+				const iframe = document.getElementById("flameIframe");
+				const currentTime = new Date().getTime();
+				if (currentTime - lastClickTime < 500) {
+					window.location.href = "https://flame.louis45.de";
+				}
+				lastClickTime = currentTime;
+			}
+		</script>
 	</body>
 </html>
