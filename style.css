@@ -94,6 +94,16 @@ body {
 	text-decoration: none;
 }
 
+.pronouns {
+	color: var(--greyedOutColor);
+	font-size: large;
+	line-height: 1.25;
+	display: block;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+}
+
 .greyedOut {
 	color: var(--greyedOutColor);
 }
@@ -159,7 +169,11 @@ body {
 }
 
 .name {
-	margin-top: -30px;
+	margin-top: -1.9rem;
+}
+
+.noun {
+	margin-top: -1.4rem;
 }
 
 .links {

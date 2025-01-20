@@ -36,6 +36,15 @@
 		<div class="userName userName2 name">
 			<a class="greyedOut">@</a>louisa.uno
 		</div>
+		<a class="pronouns userName1" href="https://google.com" target="_blank"
+			>she/they</a
+		>
+		<a
+			class="pronouns userName2 noun"
+			href="https://google.com"
+			target="_blank"
+			>sie/dey</a
+		>
 		<div class="icons">
 			<a
 				class="icon link"
@@ -104,7 +113,7 @@
 				>source code</a
 			>
 		</div>
-		<script>
+		<script type="text/javascript">
 			let lastClickTime = 0;
 			function registerRedirectClick() {
 				const currentTime = new Date().getTime();
@@ -113,6 +122,28 @@
 				}
 				lastClickTime = currentTime;
 			}
+		</script>
+		<script type="text/javascript">
+			function updateHref() {
+				document.querySelectorAll(".pronouns").forEach((a) => {
+					const opacity = parseFloat(
+						window.getComputedStyle(a).opacity
+					);
+					if (opacity > 0.5) {
+						a.setAttribute(
+							"href",
+							"https://go.louisa.uno/pronomen"
+						);
+					} else if (opacity < 0.5) {
+						a.setAttribute(
+							"href",
+							"https://go.louisa.uno/pronouns"
+						);
+					}
+				});
+				requestAnimationFrame(updateHref);
+			}
+			updateHref();
 		</script>
 	</body>
 </html>
