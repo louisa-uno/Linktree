@@ -167,17 +167,9 @@
 					const data = await response.json();
 
 					function formatPronouns(pronouns) {
-						if (pronouns.length === 0) return "N/A";
-
-						const firstPronouns = pronouns[0].value.split('/')[0];
-						let result = firstPronouns;
-
-						if (pronouns.length > 1) {
-							const secondPronouns = pronouns[1].value.split('/')[0];
-							result += '/' + secondPronouns;
-						}
-
-						return result;
+						if (pronouns.length === 1) return pronouns[0].value;
+						if (pronouns.length > 1) return pronouns[0].value.split('/')[0] + '/' + pronouns[1].value.split('/')[0];
+						return "N/A";
 					}
 
 					document.getElementById('pronounsEN').textContent = formatPronouns(data.profiles.en.pronouns);
