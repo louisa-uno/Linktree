@@ -32,6 +32,8 @@ jobs:
               uses: actions/configure-pages@v5
             - name: Build with Jekyll
               uses: actions/jekyll-build-pages@v1
+            - name: Download fontawesome css
+              run: wget https://use.fontawesome.com/releases/v5.15.4/css/all.css -O ./_site/all.css
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
 
