@@ -43,6 +43,9 @@ jobs:
             - name: Download Signika Google Font
               run: |
                 curl -o SignikaGoogleFont.css https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap
+            - name: Download codecorner
+              run: |
+                curl -o codecorner.js https://cdn.pride.codes/js/codecorner.js
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
