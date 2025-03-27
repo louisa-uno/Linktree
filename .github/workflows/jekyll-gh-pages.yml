@@ -40,6 +40,9 @@ jobs:
                 curl -o webfonts/fa-solid-900.woff2 https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2
                 curl -o webfonts/fa-solid-900.woff https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff
                 curl -o webfonts/fa-solid-900.ttf https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.ttf
+            - name: Download Codecorner
+              run: |
+                curl -o codecorner.js https://cdn.pride.codes/js/codecorner.js
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
