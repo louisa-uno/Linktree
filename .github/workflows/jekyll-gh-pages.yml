@@ -33,6 +33,7 @@ jobs:
             - name: Download FontAwesome
               run: |
                 curl -o fontawesome.css https://use.fontawesome.com/releases/v5.15.4/css/all.css
+                mkdir webfonts
                 curl -o webfonts/fa-brands-400.woff2 https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff2
                 curl -o webfonts/fa-brands-400.woff https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff
                 curl -o webfonts/fa-brands-400.ttf https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.ttf
