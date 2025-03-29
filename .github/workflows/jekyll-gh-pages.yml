@@ -40,9 +40,9 @@ jobs:
                 curl -o webfonts/fa-solid-900.woff2 https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2
                 curl -o webfonts/fa-solid-900.woff https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff
                 curl -o webfonts/fa-solid-900.ttf https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.ttf
-            - name: Download Signika Google Font
+            - name: Download Signika Google Font (https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap)
               run: |
-                curl -o SignikaGoogleFont.css https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap
+                curl -o SignikaGoogleFont.css https://fonts.gstatic.com/s/signika/v25/vEF72_JTCgwQ5ejvMV0Ox_Kg1UwJ0tKfX4zNpD8E4ASzH1r9XzyYzQ.ttf
             - name: Download codecorner
               run: |
                 curl -o codecorner.js https://cdn.pride.codes/js/codecorner.js
