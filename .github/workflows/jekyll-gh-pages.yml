@@ -35,7 +35,7 @@ jobs:
               with:
                   node-version: 18  
             - name: Install PurgeCSS
-              run: npm install -g purgecss
+              run: npm install -g purgecss cssnano-cli html-minifier-terser terser
             - name: Download FontAwesome
               run: |
                 curl -o fontawesome.css https://use.fontawesome.com/releases/v5.15.4/css/all.css
@@ -57,6 +57,27 @@ jobs:
                 mkdir -p purged-css
                 purgecss --content "./**/*.html" --css "./**/*.css" --output "./purged-css"
                 mv ./purged-css/*.css ./  # Move purged CSS back to root
+            - name: Minify CSS
+              run: |
+                mkdir -p minified-css
+                for file in ./*.css; do
+                  [ -f "$file" ] && cssnano "$file" "minified-css/$(basename $file)"
+                done
+                mv minified-css/*.css ./  # Replace original CSS with minified version
+            - name: Minify HTML
+              run: |
+                mkdir -p minified-html
+                for file in ./*.html; do
+                  [ -f "$file" ] && html-minifier-terser --collapse-whitespace --remove-comments --remove-redundant-attributes --minify-css true --minify-js true --input-dir ./ --output-dir minified-html --file-ext html
+                done
+                mv minified-html/*.html ./  # Replace original HTML with minified version
+            - name: Minify JavaScript
+              run: |
+                mkdir -p minified-js
+                for file in ./*.js; do
+                  [ -f "$file" ] && terser "$file" -o "minified-js/$(basename $file)" --compress --mangle
+                done
+                mv minified-js/*.js ./  # Replace original JS with minified version
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
