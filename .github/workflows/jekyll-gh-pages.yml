@@ -35,7 +35,7 @@ jobs:
               with:
                   node-version: 18  
             - name: Install PurgeCSS
-              run: npm install -g purgecss cssnano-cli html-minifier-terser terser
+              run: npm install -g purgecss cssnano-cli html-minifier-terser terser esbuild
             - name: Download FontAwesome
               run: |
                 curl -o fontawesome.css https://use.fontawesome.com/releases/v5.15.4/css/all.css
@@ -51,7 +51,10 @@ jobs:
                 curl -o SignikaGoogleFont.ttf https://fonts.gstatic.com/s/signika/v25/vEF72_JTCgwQ5ejvMV0Ox_Kg1UwJ0tKfX4zNpD8E4ASzH1r9XzyYzQ.ttf
             - name: Download codecorner
               run: |
-                curl -o codecorner.js https://cdn.pride.codes/js/codecorner.js
+                curl -o src/codecorner.js https://cdn.pride.codes/js/codecorner.js
+            - name: Concatenate JavaScript files
+              run: |
+                npx esbuild src/index.js --bundle --outfile=bundle.js
             - name: Run PurgeCSS
               run: |
                 mkdir -p purged-css
