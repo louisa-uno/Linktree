@@ -55,7 +55,7 @@ jobs:
             - name: Run PurgeCSS
               run: |
                 mkdir -p purged-css
-                purgecss --content "./**/*.html" --css "./**/*.css" --output "./purged-css"
+                purgecss --content "./**/*.html" --css "./**/*.css" --output "./purged-css" --ignore "SignikaGoogleFont.css"
                 mv ./purged-css/*.css ./  # Move purged CSS back to root
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
