@@ -30,6 +30,12 @@ jobs:
               uses: actions/checkout@v4
             - name: Setup Pages
               uses: actions/configure-pages@v5
+            - name: Install Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 18  
+            - name: Install PurgeCSS
+              run: npm install -g purgecss
             - name: Download FontAwesome
               run: |
                 curl -o fontawesome.css https://use.fontawesome.com/releases/v5.15.4/css/all.css
@@ -46,6 +52,11 @@ jobs:
             - name: Download codecorner
               run: |
                 curl -o codecorner.js https://cdn.pride.codes/js/codecorner.js
+            - name: Run PurgeCSS
+              run: |
+                mkdir -p purged-css
+                purgecss --content "./**/*.html" --css "./**/*.css" --output "./purged-css"
+                mv ./purged-css/*.css ./  # Move purged CSS back to root
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
