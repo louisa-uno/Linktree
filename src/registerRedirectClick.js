@@ -7,3 +7,5 @@ function registerRedirectClick() {
     }
     lastClickTime = currentTime;
 }
+
+document.querySelector('.profilePictureContainer').addEventListener('click', registerRedirectClick);
