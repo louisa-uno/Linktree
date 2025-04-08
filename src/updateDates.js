@@ -10,7 +10,7 @@ function calculateDifference(targetDate, isPast) {
 			now.getMonth() -
 			targetDate.getMonth() +
 			12 * (now.getFullYear() - targetDate.getFullYear());
-		days = now.getDate() - targetDate.getDate();
+		days = now.getDate() - targetDate.getDate() + 1;
 
 		if (days < 0) {
 			months--;
