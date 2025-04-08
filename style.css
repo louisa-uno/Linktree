@@ -43,7 +43,7 @@ body {
 	font-size: small;
 }
 
-.sourceLink {
+.accent {
 	color: var(--accentColor);
 	text-decoration: none;
 }
