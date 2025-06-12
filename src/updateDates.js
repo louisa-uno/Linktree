@@ -43,12 +43,23 @@ function calculateDifference(targetDate, isPast) {
 	return { months, days };
 }
 
-const bdayDiff = calculateDifference(bday, false);
-const e2Diff = calculateDifference(e2, true);
+function formatDuration(months, days) {
+	if (months === 0 && days === 0) {
+		return "0d";
+	} else if (months === 0) {
+		return `${days}d`;
+	} else if (days === 0) {
+		return `${months}m`;
+	} else {
+		return `${months}m ${days}d`;
+	}
+}
 
-document.getElementById(
-	"onE2"
-).textContent = `${e2Diff.months}mo ${e2Diff.days}d`;
-document.getElementById(
-	"bdayin"
-).textContent = `${bdayDiff.months}mo ${bdayDiff.days}d`;
+document.getElementById("onE2").textContent = formatDuration(
+	calculateDifference(e2, true).months,
+	calculateDifference(e2, true).days
+);
+document.getElementById("bdayin").textContent = formatDuration(
+	calculateDifference(bday, false).months,
+	calculateDifference(bday, false).days
+);
