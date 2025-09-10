@@ -5,9 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="darkreader-lock" />
 		<title>Louísa's Linktree</title>
-		<link rel="icon" href="images/favicon.webp" type="image/x-icon" />
-		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="fontawesome.css" />
+		<link
+			rel="icon"
+			href="images/favicon.webp"
+			type="image/x-icon"
+			fetchpriority="low"
+		/>
+		<link rel="stylesheet" href="style.css" fetchpriority="highest" />
+		<link rel="stylesheet" href="fontawesome.css" fetchpriority="highest" />
 		<link
 			rel="preload"
 			fetchpriority="high"
@@ -89,6 +94,7 @@
 						height: 1em;
 						filter: brightness(0) invert(1);
 					"
+					fetchpriority="high"
 				/>
 			</a>
 			<a
