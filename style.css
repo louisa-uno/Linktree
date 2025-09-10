@@ -6,6 +6,15 @@
 	--gradient3Color: #1f4f7a;
 }
 
+/* Enables system-ui until Signika loads */
+@font-face {
+	font-family: "Signika";
+	src: url("SignikaGoogleFont.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
 body {
 	height: 95%;
 	font-family: "Signika", system-ui;
