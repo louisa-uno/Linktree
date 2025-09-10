@@ -6,7 +6,7 @@ request = requests.request("GET", "https://vidiq.com/youtube-stats/channel/UC0xH
 
 soup = BeautifulSoup(request.text, 'html.parser')
 
-results = soup.find_all('p', class_='mb-0 text-right text-white')
+results = soup.find_all('span', class_='text-xl font-semibold text-white md:text-[28px]')
 for result in results:
 	if 'K' in result.text:
 		subscriber_tag = result
