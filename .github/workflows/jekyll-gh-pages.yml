@@ -9,7 +9,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-    contents: read
+    contents: write
     pages: write
     id-token: write
 
@@ -85,6 +85,17 @@ jobs:
                     [ -f "$file" ] && terser "$file" -o "minified-js/$(basename $file)" --compress --mangle
                   done
                   mv minified-js/*.js ./  # Replace original JS with minified version
+            - name: Commit files and push changes
+              if: github.event_name != 'pull_request'
+              run: |
+                  rm .gitignore
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git fetch origin
+                  git checkout main
+                  git add -A
+                  git diff --cached --quiet || git commit -m "Generated pages"
+                  git push origin HEAD:auto-update --force
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
