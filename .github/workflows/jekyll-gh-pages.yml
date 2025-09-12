@@ -88,6 +88,7 @@ jobs:
             - name: Commit files and push changes
               if: github.event_name != 'pull_request'
               run: |
+                  rm .gitignore
                   git config --local user.email "action@github.com"
                   git config --local user.name "GitHub Action"
                   git fetch origin
