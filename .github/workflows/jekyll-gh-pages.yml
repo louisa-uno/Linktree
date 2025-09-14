@@ -56,6 +56,7 @@ jobs:
             - name: Download codecorner
               run: |
                   curl -o src/codecorner.js https://cdn.pride.codes/js/codecorner.js
+                  sed -i 's|<desc>Created with Sketch.</desc>||g' src/codecorner.js
             - name: Concatenate JavaScript files
               run: |
                   npx esbuild src/index.js --bundle --outfile=bundle.js
