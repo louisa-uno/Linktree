@@ -1,58 +1,57 @@
 const bday = new Date(new Date().getFullYear(), 5, 14);
 const e2 = new Date("2024-07-01");
 
-function calculateDifference(targetDate, isPast) {
-	const now = new Date();
-	let months, days;
+function ymdDiff(start, end) {
+	let years = end.getFullYear() - start.getFullYear();
+	let months = end.getMonth() - start.getMonth();
+	let days = end.getDate() - start.getDate();
 
-	if (isPast) {
-		months =
-			now.getMonth() -
-			targetDate.getMonth() +
-			12 * (now.getFullYear() - targetDate.getFullYear());
-		days = now.getDate() - targetDate.getDate() + 1;
-
-		if (days < 0) {
-			months--;
-			days += new Date(
-				targetDate.getFullYear(),
-				targetDate.getMonth() + 1,
-				0
-			).getDate();
-		}
-	} else {
-		if (now > targetDate) {
-			targetDate.setFullYear(targetDate.getFullYear() + 1);
-		}
-		months =
-			targetDate.getMonth() -
-			now.getMonth() +
-			12 * (targetDate.getFullYear() - now.getFullYear());
-		days = targetDate.getDate() - now.getDate();
-
-		if (days < 0) {
-			months--;
-			days += new Date(
-				now.getFullYear(),
-				now.getMonth() + 1,
-				0
-			).getDate();
-		}
+	if (days < 0) {
+		months -= 1;
+		const prevMonthDate = new Date(end.getFullYear(), end.getMonth(), 0);
+		const daysInPrevMonth = prevMonthDate.getDate();
+		days += daysInPrevMonth;
 	}
 
-	return { months, days };
+	if (months < 0) {
+		months += 12;
+		years -= 1;
+	}
+
+	return { years, months, days };
 }
 
-function formatDuration(months, days) {
-	if (months === 0 && days === 0) {
-		return "0d";
-	} else if (months === 0) {
-		return `${days}d`;
-	} else if (days === 0) {
-		return `${months}m`;
+function calculateDifference(targetDate, isPast) {
+	const now = new Date();
+	const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+	const t = new Date(
+		targetDate.getFullYear(),
+		targetDate.getMonth(),
+		targetDate.getDate()
+	);
+
+	if (isPast) {
+		const { years, months, days } = ymdDiff(t, today);
+		return { years, months, days };
 	} else {
-		return `${months}m ${days}d`;
+		let next = new Date(today.getFullYear(), t.getMonth(), t.getDate());
+		if (next < today) {
+			next.setFullYear(next.getFullYear() + 1);
+		}
+		const { years, months, days } = ymdDiff(today, next);
+		return { years, months, days };
 	}
+}
+
+function formatDuration(years, months, days) {
+	if (years === 0 && months === 0 && days === 0) {
+		return "0d"; // exact today [web:1]
+	}
+	const parts = [];
+	if (years > 0) parts.push(`${years}y`);
+	if (months > 0 || years > 0) parts.push(`${months}m`);
+	if (days > 0 || months > 0 || years > 0) parts.push(`${days}d`);
+	return parts.join(" ");
 }
 
 document.getElementById("onE2").textContent = formatDuration(
