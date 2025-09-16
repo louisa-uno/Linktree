@@ -45,7 +45,7 @@ function calculateDifference(targetDate, isPast) {
 
 function formatDuration(years, months, days) {
 	if (years === 0 && months === 0 && days === 0) {
-		return "0d"; // exact today [web:1]
+		return "0d";
 	}
 	const parts = [];
 	if (years > 0) parts.push(`${years}y`);
@@ -54,11 +54,16 @@ function formatDuration(years, months, days) {
 	return parts.join(" ");
 }
 
+const e2Diff = calculateDifference(e2, true);
 document.getElementById("onE2").textContent = formatDuration(
-	calculateDifference(e2, true).months,
-	calculateDifference(e2, true).days
+	e2Diff.years,
+	e2Diff.months,
+	e2Diff.days
 );
+
+const bdayDiff = calculateDifference(bday, false);
 document.getElementById("bdayin").textContent = formatDuration(
-	calculateDifference(bday, false).months,
-	calculateDifference(bday, false).days
+	bdayDiff.years,
+	bdayDiff.months,
+	bdayDiff.days
 );
