@@ -113,6 +113,10 @@ body {
 	text-decoration: none;
 }
 
+.pronouns.underline-all {
+	text-decoration: underline;
+}
+
 .greyedOut {
 	color: var(--greyedOutColor);
 }
