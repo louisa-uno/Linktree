@@ -34,8 +34,8 @@ jobs:
                   python-version: "3.x"
             - name: Install Python dependencies
               run: pip install requests beautifulsoup4
-            - name: Run Python script
-              run: python src/updateSubscribers.py
+            #- name: Run Python script
+            #  run: python src/updateSubscribers.py
             - name: Install Node.js
               uses: actions/setup-node@v4
               with:
