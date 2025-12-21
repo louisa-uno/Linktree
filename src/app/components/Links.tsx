@@ -1,28 +1,25 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faSteam } from '@fortawesome/free-brands-svg-icons'
-import { on } from "events";
+import { IconDefinition, faEnvelope, faBook } from '@fortawesome/free-solid-svg-icons'
+import { faSignalMessenger, faSpotify, faMastodon, faGithub, faTelegram, faSteam, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 type LinkItem = {
 	href: string;
-	content: ReactNode;
-	className?: string;
+	icon: IconDefinition | ReactNode;
 };
 
 type LinkWithText = LinkItem & {
 	href: string;
-	content: string;
+	icon: IconDefinition | ReactNode;
 	label: string;
 };
 
 const iconOnlyLinks: LinkItem[] = [
 	{
 		href: "https://go.louisa.uno/matrix",
-		content: (
+		icon: (
 			<Image
 				src="/icon_matrix.svg"
 				alt=""
@@ -32,23 +29,29 @@ const iconOnlyLinks: LinkItem[] = [
 					width: "1em",
 					height: "1em",
 					filter: "brightness(0) invert(1)",
+					alignSelf: "center",
+					marginBottom: "-0.1em",
 				}}
 			/>
 		),
 	},
-	{ href: "https://go.louisa.uno/signal", content: <i className="fa-brands fa-signal-messenger"></i> },
-	{ href: "https://go.louisa.uno/spotify", content: <i className="fa-brands fa-spotify"></i>, },
-	{ href: "mailto:linktree@louísa.com", content: <i className="fas fa-envelope"></i>, },
+	{ href: "https://go.louisa.uno/signal", icon: faSignalMessenger },
+	{ href: "https://go.louisa.uno/spotify", icon: faSpotify },
+	{ href: "mailto:linktree@louísa.com", icon: faEnvelope },
+	// {
+	// 	href: "coffee", content:
+	// 		<FontAwesomeIcon icon={faSteam} size="xs" />
+	// },
 ];
 
 const iconTextLinks: LinkWithText[] = [
-	{ href: "mastodon", content: "fa-brands fa-mastodon", label: "Fediverse" },
-	{ href: "github", content: "fa-brands fa-github", label: "GitHub" },
-	{ href: "notes", content: "fa-solid fa-book", label: "Notes" },
-	{ href: "telegram", content: "fa-brands fa-telegram", label: "Telegram" },
-	{ href: "steam", content: "fa-brands fa-steam", label: "Steam (Main)" },
-	{ href: "cs", content: "fa-brands fa-steam", label: "Steam (Counter Strike)" },
-	{ href: "youtube", content: "fa-brands fa-youtube", label: "YOUTUBE_SUBSCRIBERS YouTube" },
+	{ href: "mastodon", icon: faMastodon, label: "Fediverse" },
+	{ href: "github", icon: faGithub, label: "GitHub" },
+	{ href: "notes", icon: faBook, label: "Notes" },
+	{ href: "telegram", icon: faTelegram, label: "Telegram" },
+	{ href: "steam", icon: faSteam, label: "Steam (Main)" },
+	{ href: "cs", icon: faSteam, label: "Steam (Counter Strike)" },
+	{ href: "youtube", icon: faYoutube, label: "YOUTUBE_SUBSCRIBERS YouTube" },
 ];
 
 const Anchor = ({
@@ -81,6 +84,14 @@ const Anchor = ({
 	</a>
 );
 
+function returnIcon(icon: IconDefinition | ReactNode) {
+	if (icon && typeof icon === 'object' && 'iconName' in icon) {
+		return <FontAwesomeIcon icon={icon as IconDefinition} size="xs" style={{ width: "1em", height: "1em", marginRight: "0.15em", marginLeft: "0.15em", marginBottom: "-0.1em" }} />;
+	} else {
+		return icon;
+	}
+}
+
 export function Links() {
 	return (
 		<>
@@ -90,7 +101,7 @@ export function Links() {
 				margin: "27px auto",
 				width: "fit-content"
 			}}>
-				{iconOnlyLinks.map(({ href, content, className }) => (
+				{iconOnlyLinks.map(({ href, icon }) => (
 					<Anchor key={href} href={href}
 						style={{
 							position: "relative",
@@ -110,7 +121,7 @@ export function Links() {
 							textDecoration: "none",
 							WebkitTapHighlightColor: "transparent"
 						}}>
-						{content}
+						{returnIcon(icon)}
 					</Anchor>
 				))}
 			</div>
@@ -121,11 +132,9 @@ export function Links() {
 				display: "block",
 				margin: "27px auto"
 			}}>
-				{iconTextLinks.map(({ href, content, label }) => (
+				{iconTextLinks.map(({ href, icon, label }) => (
 					<Anchor key={href} href={`https://go.louisa.uno/${href}`}>
-						<i className={content}>&nbsp;</i>
-						{/* <FontAwesomeIcon icon={faSteam} size="xs" /> */}
-						{label}
+						{returnIcon(icon)}&nbsp;{label}
 					</Anchor>
 				))}
 			</div>

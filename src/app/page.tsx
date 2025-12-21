@@ -6,6 +6,7 @@ import { DoubleClick } from "./components/DoubleClick";
 import { UpdateHref } from "./components/UpdateHref";
 
 export default async function Home() {
+  'use cache';
   const dates = Dates();
   const pronouns = await Pronouns();
 

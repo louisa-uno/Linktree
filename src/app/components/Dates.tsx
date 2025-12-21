@@ -37,7 +37,7 @@ export function Dates(): { daysOnHrt: string; age: string } {
 			const { years, months, days } = ymdDiff(t, today);
 			return { years, months, days };
 		} else {
-			let next = new Date(today.getFullYear(), t.getMonth(), t.getDate());
+			const next = new Date(today.getFullYear(), t.getMonth(), t.getDate());
 			if (next < today) {
 				next.setFullYear(next.getFullYear() + 1);
 			}

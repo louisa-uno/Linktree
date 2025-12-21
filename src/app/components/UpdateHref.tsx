@@ -1,6 +1,6 @@
 // ...existing code...
 'use client';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export function UpdateHref({ selector, link1, link2 }: { selector: string; link1: string; link2: string }) {
 	const rafRef = useRef<number | null>(null);
@@ -18,7 +18,7 @@ export function UpdateHref({ selector, link1, link2 }: { selector: string; link1
 		return () => {
 			if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
 		};
-	}, []);
+	}, [selector, link1, link2]);
 
 	return null;
 }

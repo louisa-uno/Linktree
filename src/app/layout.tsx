@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Signika } from "next/font/google";
 import "./globals.css";
 import { Codecorner } from "./components/Codecorner";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const signikaSans = Signika({
   weight: "600",
@@ -26,32 +27,8 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="darkreader-lock" />
-        {/* <title>Louísa's Linktree</title> */}
-        <link
-          rel="icon"
-          href="/favicon.webp"
-          type="image/x-icon"
-        />
-        <link
-          rel="stylesheet"
-          fetchPriority="high"
-          href="https://use.fontawesome.com/releases/v6.7.2/css/all.css"
-        />
-        {/* <link
-                href="https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap"
-                rel="stylesheet"
-              /> */}
-        <link
-          rel="preload"
-          fetchPriority="high"
-          as="image"
-          href="/images/profile.webp"
-          type="image/webp"
-        />
-        {/* <script async src="registerRedirectClick.js" />
-              <script async src="underlinePronouns.js" />
-              <script async src="updateHref.js" /> */}
         <link rel="me" href="https://mk.absturztau.be/@louisa_uno" />
+        <GoogleAnalytics gaId="G-2HDHDD6XRF" />
       </head>
       <body className={signikaSans.className}>
         {children}
