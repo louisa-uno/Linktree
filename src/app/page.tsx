@@ -18,16 +18,11 @@ export default async function Home() {
           margin: "35px auto 20px",
         }}>
           <a className="profilePicture">
-            <Image src="/profile.webp" alt="Profile Picture" width={128} height={128} />
+            <Image src="/pb1.jpg" alt="Profile Picture" width={128} height={128} />
           </a>
-          {/*
-					<!-- 			<a className="profilePicture profilePictureOverlay">
-          <img
-          src="/images/profile.webp"
-          alt="Profile Picture Overlay"
-          />
-					</a> -->
-					*/}
+          <a className="profilePicture profilePictureOverlay">
+            <Image src="/pb2.jpg" alt="Profile Picture Overlay" width={128} height={128} />
+          </a>
         </div>
       </DoubleClick>
       <div style={{ color: "var(--accentColor)", fontSize: "x-large", lineHeight: "1.25", display: "block", width: "100%", textAlign: "center", textDecoration: "none" }}>
