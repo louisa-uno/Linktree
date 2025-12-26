@@ -1,3 +1,5 @@
+'use cache'
+
 export async function Pronouns(): Promise<{ pronounsEN: string; pronounsDE: string }> {
 	let pronounsEN = 'N/A';
 	let pronounsDE = 'N/A';

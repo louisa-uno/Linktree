@@ -1,3 +1,5 @@
+'use cache'
+
 import Image from "next/image";
 import { Links } from "./components/Links";
 import { Dates } from "./components/Dates";
@@ -6,7 +8,6 @@ import { DoubleClick } from "./components/DoubleClick";
 import { UpdateHref } from "./components/UpdateHref";
 
 export default async function Home() {
-  'use cache';
   const dates = Dates();
   const pronouns = await Pronouns();
 
