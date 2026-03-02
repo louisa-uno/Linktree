@@ -28,7 +28,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="darkreader-lock" />
         <link rel="me" href="https://mk.absturztau.be/@louisa_uno" />
-        <GoogleAnalytics gaId="G-CKL3108EQ5" />
+        <GoogleAnalytics gaId="G-2HDHDD6XRF" />
       </head>
       <body className={signikaSans.className}>
         {children}
