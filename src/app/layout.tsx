@@ -3,6 +3,7 @@ import { Signika } from "next/font/google";
 import "./globals.css";
 import { Codecorner } from "./components/Codecorner";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { MatomoAnalytics } from "./components/MatomoAnalytics";
 
 const signikaSans = Signika({
   weight: "600",
@@ -29,6 +30,7 @@ export default function RootLayout({
         <meta name="darkreader-lock" />
         <link rel="me" href="https://mk.absturztau.be/@louisa_uno" />
         <GoogleAnalytics gaId="G-2HDHDD6XRF" />
+        <MatomoAnalytics baseUrl="https://metrics.louisa.uno" siteId="1" />
       </head>
       <body className={signikaSans.className}>
         {children}
