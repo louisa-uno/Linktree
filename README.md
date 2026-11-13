@@ -1,5 +1,5 @@
 ## Linktree
-[![Action Status: jekyll-gh-pages.yml](https://github.com/louisa-uno/Linktree/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/louisa-uno/Linktree/actions/workflows/jekyll-gh-pages.yml)
+[![Action Status: cloudflare-worker-deploy.yml](https://github.com/louisa-uno/Linktree/actions/workflows/cloudflare-worker-deploy.yml/badge.svg)](https://github.com/louisa-uno/Linktree/actions/workflows/cloudflare-worker-deploy.yml)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL–3.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 Open source alternative to services like linktree and manylink. Displays a tree or list of links I want to direct people towards. 
